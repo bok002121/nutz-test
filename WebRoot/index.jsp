@@ -1,9 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<base href="<%=basePath%>">
 <title>NutzBook demo</title>
 <!-- 导入jquery -->
 <script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/2.0.3/jquery-2.0.3.min.js"></script>
@@ -14,7 +19,7 @@
     $(function() {
         $("#login_button").click(function() {
             $.ajax({
-                url : base + "/user/login",
+                url : "user/login",
                 type: "POST",
                 data:$('#loginForm').serialize(),
                 error: function(request) {
@@ -54,7 +59,7 @@
 </div>
 <div id="user_info_div">
     <p id="userInfo"></p>
-    <a href="${base}/user/logout">登出</a>
+    <a href="user/logout">登出</a>
 </div>
 </body>
 </html>
