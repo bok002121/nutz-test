@@ -35,23 +35,25 @@ public class NutzBookNutFilter extends NutFilter {
             String uri = ((HttpServletRequest) req).getRequestURI();
             for (String prefix : prefixs) {
                 if (uri.startsWith(prefix)) {
+                	System.out.println("come next filter");
                     chain.doFilter(req, resp);
                     return;
                 }
             }
-        }
-        // 判断用户是否登录
-//        HttpServletRequest r = (HttpServletRequest)req;
-//        HttpSession session = r.getSession();
-//        
-//        if(null == session.getAttribute("me"))
-//		{
-//			(( HttpServletResponse )resp).sendRedirect("index.jsp");
-//			return ;
-//		}
-//        System.out.println("session get");
+            
+            // 判断用户是否登录
+//            HttpServletRequest r = (HttpServletRequest)req;
+//            HttpSession session = r.getSession();
+//            
+//            if(null == session.getAttribute("me"))
+//    		{
+//    			(( HttpServletResponse )resp).sendRedirect(session.getServletContext().getContextPath() + "/index.jsp");
+//    			return ;
+//    		}
+//            System.out.println("session get");
 
-        // 在这里判断用户权限！阻止那些用户夸权访问
+            // 在这里判断用户权限！阻止那些用户夸权访问
+        }
         
         
         

@@ -27,7 +27,7 @@ import org.nutz.mvc.view.JspView;
 @At("/user")
 @Ok("json:{locked:'password|salt',ignoreNull:true}")
 @Fail("http:500")
-//@Filters(@By(type = CheckSession.class, args ={ "me", "/" }))
+@Filters(@By(type = CheckSession.class, args ={ "me", "/" }))
 public class UserModule extends BaseModule
 {
 	@At
