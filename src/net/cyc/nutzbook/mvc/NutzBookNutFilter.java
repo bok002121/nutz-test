@@ -24,23 +24,25 @@ public class NutzBookNutFilter extends NutFilter {
         super.init(conf);
         prefixs.add(conf.getServletContext().getContextPath() + "/druid/");
         prefixs.add(conf.getServletContext().getContextPath() + "/rs/");
-        prefixs.add(conf.getServletContext().getContextPath() + "/jsp/user");
+        //prefixs.add(conf.getServletContext().getContextPath() + "/user");
         prefixs.add(conf.getServletContext().getContextPath() + "/index.jsp");
-        //System.out.println(conf.getServletContext().getContextPath() + "/jsp/user");
+        System.out.println(conf.getServletContext().getContextPath() + "/jsp/user");
     }
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
         if (req instanceof HttpServletRequest) {
             String uri = ((HttpServletRequest) req).getRequestURI();
+            //System.out.println(uri);
             for (String prefix : prefixs) {
                 if (uri.startsWith(prefix)) {
-                	System.out.println("come next filter");
+                	//System.out.println("come next filter");
                     chain.doFilter(req, resp);
+                    //System.out.println("come back filter");
                     return;
                 }
             }
-            
+            //System.out.println("any come back filter");
             // 判断用户是否登录
 //            HttpServletRequest r = (HttpServletRequest)req;
 //            HttpSession session = r.getSession();

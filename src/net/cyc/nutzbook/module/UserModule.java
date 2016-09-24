@@ -27,7 +27,7 @@ import org.nutz.mvc.view.JspView;
 @At("/user")
 @Ok("json:{locked:'password|salt',ignoreNull:true}")
 @Fail("http:500")
-@Filters(@By(type = CheckSession.class, args ={ "me", "/" }))
+//@Filters(@By(type = CheckSession.class, args ={ "me", "/" }))
 public class UserModule extends BaseModule
 {
 	@At
@@ -35,6 +35,7 @@ public class UserModule extends BaseModule
 	public Object login(@Param("username") String name,
 			@Param("password") String password, HttpSession session)
 	{
+		System.out.println("user.login");
 		User user = dao.fetch(User.class,
 				Cnd.where("name", "=", name).and("password", "=", password));
 		if (user == null)

@@ -1,65 +1,42 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
- <%
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<base href="<%=basePath%>">
-<title>NutzBook demo</title>
-<!-- 导入jquery -->
-<script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/2.0.3/jquery-2.0.3.min.js"></script>
-<!-- 把user id复制到一个js变量 -->
-<script type="text/javascript">
-    var me = '<%=session.getAttribute("me") %>';
-    var base = '${base}';
-    $(function() {
-        $("#login_button").click(function() {
-            $.ajax({
-                url : "user/login",
-                type: "POST",
-                data:$('#loginForm').serialize(),
-                error: function(request) {
-                    alert("Connection error");
-                },
-                dataType:"json",
-                success: function(data) {
-                    alert(data);
-                    if (data == true) {
-                        alert("登陆成功");
-                        location.reload();
-                    } else {
-                        alert("登陆失败,请检查账号密码")
-                    }
-                }
-            });
-            return false;
-        });
-        if (me != "null") {
-            $("#login_div").hide();
-            $("#userInfo").html("您的Id是" + me);
-            $("#user_info_div").show();
-        } else {
-            $("#login_div").show();
-            $("#user_info_div").hide();
-        }
-    });
-</script>
-</head>
-<body>
-<div id="login_div">
-    <form action="#" id="loginForm" method="post">
-        用户名 <input name="username" type="text" value="admin">
-        密码 <input name="password" type="password" value="123456">
-        <button id="login_button">提交</button>
-    </form>
-</div>
-<div id="user_info_div">
-    <p id="userInfo"></p>
-    <a href="user/logout">登出</a>
-</div>
-</body>
+  <head>
+    <base href="<%=basePath%>">
+    
+    <title>Login</title>
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	<link rel="shortcut icon" href="image/favicon.ico" >
+	<link rel="stylesheet" type="text/css" href="css/my.css">
+	<script src="js/jquery.min.js"></script>
+    <script src="js/login.js"></script>
+  </head>
+  
+  <body>
+     <div id="div_pane"></div>
+     <div id="div_login" >
+         <form action="#" id="form_login" method="post">
+             <div class="header">
+                 <h1>Login</h1>
+             </div>
+             <div class="form-body">
+                 <label for="username">用户名</label>
+                 <input type="text" id="username" name="username" class="form-control input-block"/>
+                 <label for="password">密码</label>
+                 <input type="password" id="password" name="password" class="form-control input-block" />
+                 <div id="tip" class="flash flash-error"></div>
+                 <input type="submit" value="登录" class="btn btn-effect btn-block" />
+             </div> 
+         </form>
+     </div>
+  </body>
 </html>
