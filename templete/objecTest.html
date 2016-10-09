@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/SimpleTree.css"/>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script>
+         $(document).ready(function () {
+
+            var t = {
+                click: function(){ alert("hello");},
+                a: false
+            };
+            //alert("hello");
+            console.log(typeof(t.a));
+            console.log(typeof(t.click));
+            console.log($(".st_tree").find("ul ul").prev("li").text());
+            $(".st_tree .tree-top").click(function(){ alert("tree-top");return false;});
+            $(".st_tree li[class!=tree-top]").click(function(){ alert("not tree-top");return true;});
+            //$("#ul1").hide();
+
+         });
+    </script>
+</head>
+<body>
+    <div id="debug"></div>
+    <div class="st_tree">
+        <ul>
+            <li class="tree-top"><a href="#" ref="hyjm">欢迎界面</a></li>
+            <li class="tree-top"><a href="#" ref="xtgl">系统管理</a></li>
+            <ul show="true" id="ul1">
+                <li><a href="#" ref="yhgl">用户管理</a></li>
+                <li><a href="#" ref="rzck">日志查看</a></li>
+            </ul>
+            <li><a href="#" ref="ckgl">仓库管理</a></li>
+            <ul>
+                <li><a href="#" ref="kcgl">库存管理</a></li>
+                <li><a href="#" ref="shgl">收货管理</a></li>
+                <li><a href="#" ref="fhgl">发货管理</a></li>
+                <ul>
+                    <li><a href="#" ref="yhgl">用户管理</a></li>
+                    <li><a href="#" ref="rzck">日志查看</a></li>
+                </ul>
+            </ul>
+        </ul>
+    </div>
+</body>
+</html>
