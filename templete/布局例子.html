@@ -1,34 +1,88 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Layout Example</title>
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/layout.js"></script>
-<script type="text/javascript">
-$(document).ready(function () {
-    $('body').layout({ applyDemoStyles: true });
-    $('div#test').layout({ applyDemoStyles: true });
-});
-</script>
+    <title>Layout Example</title>
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/jquery-custom.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.custom.js"></script>
+    <script type="text/javascript" src="js/layout.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('body').layout({
+            applyDemoStyles: true
+        });
+        $('div#test').layout({
+            applyDemoStyles: true
+        });
+        $( "#menu" ).menu();
+    });
+    </script>
+     <style>
+  .ui-menu { width: 150px; }
+  </style>
 </head>
+
 <body>
-<div class="ui-layout-center" id="test">Center
-    <p><a href="http://layout.jquery-dev.com/demos.html">Go to the Demos page</a></p>
-    <p>* Pane-resizing is disabled because ui.draggable.js is not linked</p>
-    <p>* Pane-animation is disabled because ui.effects.js is not linked</p>
-    <div class="ui-layout-center">Center
-    <p><a href="http://layout.jquery-dev.com/demos.html">Go to the Demos page</a></p>
-    <p>* Pane-resizing is disabled because ui.draggable.js is not linked</p>
-    <p>* Pane-animation is disabled because ui.effects.js is not linked</p>
-     </div>
-     <div class="ui-layout-north">1</div>
-     <div class="ui-layout-south">2</div>
-     <div class="ui-layout-east">3</div>
-     <div class="ui-layout-west">4</div>
-     </div>
-<div class="ui-layout-north">1</div>
-<div class="ui-layout-south">2</div>
-<div class="ui-layout-east">3</div>
-<div class="ui-layout-west">4</div>
+    <div class="ui-layout-center" id="test">Center
+        <p><a href="http://layout.jquery-dev.com/demos.html">Go to the Demos page</a></p>
+        <p>* Pane-resizing is disabled because ui.draggable.js is not linked</p>
+        <p>* Pane-animation is disabled because ui.effects.js is not linked</p>
+        <div class="ui-layout-center">Center
+            <p><a href="http://layout.jquery-dev.com/demos.html">Go to the Demos page</a></p>
+            <p>* Pane-resizing is disabled because ui.draggable.js is not linked</p>
+            <p>* Pane-animation is disabled because ui.effects.js is not linked</p>
+        </div>
+        <div class="ui-layout-north">1</div>
+        <div class="ui-layout-south">2</div>
+        <div class="ui-layout-east">3</div>
+        <div class="ui-layout-west">4</div>
+    </div>
+    <div class="ui-layout-north">1</div>
+    <div class="ui-layout-south">2</div>
+    <div class="ui-layout-east">3</div>
+    <div class="ui-layout-west">
+        <ul id="menu">
+            <li class="ui-state-disabled"><a href="#">Aberdeen</a></li>
+            <li><a href="#" >Ada</a></li>
+            <li><a href="#">Adamsville</a></li>
+            <li><a href="#">Addyston</a></li>
+            <li>
+                <a href="#">Delphi</a>
+                <ul>
+                    <li class="ui-state-disabled"><a href="#">Ada</a></li>
+                    <li><a href="#">Saarland</a></li>
+                    <li><a href="#">Salzburg</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Saarland</a></li>
+            <li>
+                <a href="#">Salzburg</a>
+                <ul>
+                    <li>
+                        <a href="#">Delphi</a>
+                        <ul>
+                            <li><a href="#">Ada</a></li>
+                            <li><a href="#">Saarland</a></li>
+                            <li><a href="#">Salzburg</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Delphi</a>
+                        <ul>
+                            <li><a href="#">Ada</a></li>
+                            <li><a href="#">Saarland</a></li>
+                            <li><a href="#">Salzburg</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Perch</a></li>
+                </ul>
+            </li>
+            <li class="ui-state-disabled"><a href="#">Amesville</a></li>
+        </ul>
+    </div>
 </body>
+
 </html>
